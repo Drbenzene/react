@@ -1,7 +1,12 @@
-import { useState } from "react"
+import { useState, useRef } from "react"
 
 
 export default function SelectInputField(props) {
+
+    const email = useRef()
+    const firstName = useRef(null)
+    const lastName = useRef()
+
 
     const [values, setValues] = useState({})
 
@@ -39,14 +44,38 @@ export default function SelectInputField(props) {
         }
     }
 
+    // ALGORITHM 
+// Write a function reverseWords(str) that reverses the order of words in a sentence.
 
+// Given a string of words separated by spaces, return a new string with the words in reverse order. 
+// The letters inside each word stay the same — only the word order flips.
+// Input
+// reverseWords("hello world")
+
+// Output
+// "world hello"
 
     // FORM  
 
     console.log(values, "THE VALUESSSSS")
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log('nAME', firstName.current.value)
+    }
+
     return (
         <div>
+
+            <form onSubmit={handleSubmit}>
+            <input
+            ref={firstName}
+            />
+
+            <button  type="submit" >Submit FirstName</button>
+
+            </form>
+
 
             <label>{label} </label>
             <select
